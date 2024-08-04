@@ -1,27 +1,49 @@
 <html>
 	<head>
-		<title>Greeting App By Kamal Sir</title>
+		<title>Digital Clock App By Kamal Sir</title>
 		<style>
-			h1 {font-size: 100px;}
-			body {background-color: azure;}
+			h1 {font-size: 200px;}
+			
 		</style>
 	</head>
 
 	<body>
 		<center>
+			<br>
 			<h1 id="msg"></h1>
 
 			<script>
+			function show()
+			{
+				
 				let msg=document.getElementById("msg");
 				let d=new Date();
-				let h=d.getHours();
 
-				if(h<12)
-					msg.innerHTML = "Good Morning";
-				else if(h<16)
-					msg.innerHTML = "Good Afternoon";
-				else
-					msg.innerHTML = "Good Evening";
+				let h=d.getHours();
+				let sh=h.toString();
+				if(h<10)
+					sh= "0"+sh;
+
+				let m=d.getMinutes();
+				let sm=m.toString();
+				if(m<10)
+					sm= "0"+sm;
+
+				let s=d.getSeconds();
+				let ss=s.toString();
+				if(s<10)
+					ss= "0"+ss;
+
+				let ans = sh + ":" + sm + ":" + ss;
+				msg.innerHTML = ans;
+
+			}
+			show();
+			setInterval(show, 1000);
+				
+
+				
+					
 			</script>
 		</center>
 	</body>
